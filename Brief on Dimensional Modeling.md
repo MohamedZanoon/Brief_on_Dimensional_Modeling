@@ -1,6 +1,6 @@
 # Brief on Dimensional Modeling - The Data Warehouse Toolkit
 
-![Article Image](Article_Dimensional_Modeling.png)
+![Article Image](Images/Article_Dimensional_Modeling.png)
 Source: The Data Warehouse Toolkit - 3rd Edition - (Author: Ralph Kimball)
 
 ## What is Dimensional Modeling?
@@ -129,7 +129,7 @@ A row in an accumulating snapshot fact table summarizes the measurement events o
 
 A row in an factless fact table not have a numeric fact, the event merely records a set of dimensional entities coming together at a moment in time.
 
-![Factless Fact Tables Image](Factless_Fact_Tables.png)
+![Factless Fact Tables Image](Images/Factless_Fact_Tables.png)
 
 Although most measurement events capture numerical results, it is possible that the event merely records a set of dimensional entities coming together at a moment in time. For example, an event of a student attending a class on a given day may not have a recorded numeric fact, but a fact row with foreign keys for calendar day, student, teacher, location, and class is well-defined. Factless fact tables can also be used to analyze what didn't happen. These queries always have two parts: a factless coverage table that contains all the possibilities of events that might happen and an activity table that contains the events that did happen. When the activity is subtracted from the coverage, the result is the set of events that did not happen.
 
@@ -241,13 +241,13 @@ Type 7 is the final hybrid technique used to support both as-was and as-is repor
 
 It decomposes the DW/BI planning process into manageable pieces by focusing on the organization's core business processes, along with the associated conformed dimensions.
 
-![Bus Matrix Image](Bus_Matrix.png)
+![Bus Matrix Image](Images/Bus_Matrix.png)
 
 Conformed dimensions are common, standardized, master dimensions that are managed once in the extract, transformation, and load (ETL) system and then reused by multiple fact tables. Conformed dimensions deliver consistent descriptive attributes across dimensional models. They support the ability to drill across and integrate data from multiple business processes. Finally, reusing conformed dimensions shortens the time-to-market by eliminating redundant design and development efforts.
 
 The associated Enterprise Data Warehouse Bus Matrix, shown below, is a key design tool representing the organization's core business processes and associated dimensionality. It's the architectural blueprint providing the top-down strategic perspective to ensure data in the DW/BI environment can be integrated across the enterprise, while agile bottom-up delivery occurs by focusing on a single business process at a time.
 
-![Bus Matrix Image](Bus_Matrix2.png)
+![Bus Matrix Image](Images/Bus_Matrix2.png)
 
 -----------------------------------------------------------------------------------------
 
@@ -258,25 +258,25 @@ The associated Enterprise Data Warehouse Bus Matrix, shown below, is a key desig
 
 ## ◼ Star Schema:
 
-![Star Schema Image](Star_Schema.png)
+![Star Schema Image](Images/Star_Schema.png)
 
 - In a star schema, there is a central fact table surrounded by dimension tables.
 - The fact table contains quantitative data (such as sales, revenue, or quantities) and foreign keys that link to the primary keys of dimension tables.
 - Dimension tables contain descriptive attributes that provide context to the data in the fact table.
 - The star schema is straightforward and easy to understand, making it a popular choice for data warehousing.
 
-![Star Schema Image](Star_Schema2.png)
+![Star Schema Image](Images/Star_Schema2.png)
 
 ## ◼ Snowflake Schema:
 
-![Snowflake Schema Image](Snowflake_Schema.png)
+![Snowflake Schema Image](Images/Snowflake_Schema.png)
 
 - The snowflake schema is an extension of the star schema in which dimension tables are normalized, leading to a more normalized structure.
 - Normalization involves breaking down dimension tables into sub-dimensions or related tables to reduce redundancy.
 - This results in a structure that resembles a snowflake when diagrammed, hence the name.
 - While snowflake schemas can save storage space, they may involve more complex queries due to the need to join more tables.
 
-![Snowflake Schema Image](Snowflake_Schema2.png)
+![Snowflake Schema Image](Images/Snowflake_Schema2.png)
 
 Choosing the right dimensional modeling schema depends on the specific requirements of your data warehouse and the nature of the data you are working with. Star schemas are often favored for simplicity and query performance, while snowflake schemas may be used when data normalization is a priority.
 
@@ -284,13 +284,13 @@ Choosing the right dimensional modeling schema depends on the specific requireme
 
 ## Star Schema Can Include Multiple Fact Tables
 
-![Star Schema Multiple Fact Tables Image](Star_Multiple_Fact_Tables.png)
+![Star Schema Multiple Fact Tables Image](Images/Star_Multiple_Fact_Tables.png)
 
 FactInternetSales and FactResellerSales. 
 They have some shared dimensions in between (DimProduct and DimDate), and they also have their separate dimensions (DimCustomer for FactInternetSales, and DimReseller for FactResellerSales). 
 The model above is a perfect star schema design. Because each fact table still needs one single relationship to a dimension. A model like above, give us the ability to filter both fact tables based on shared dimension in between.
 
-![Star Schema Multiple Fact Tables Image](Star_Multiple_Fact_Tables2.png)
+![Star Schema Multiple Fact Tables Image](Images/tar_Multiple_Fact_Tables2.png)
 
 -----------------------------------------------------------------------------------------
 
